@@ -19,6 +19,21 @@ export async function planetas(text) {
     store.setState({items:res.data})
 }
     
+export async function getJSON(url) {
+const url='data/Kepler-22b.json'
+fetch(url)
+.then(res => res.json())
+.then(res => {
+  let thisnew = [];
+  thisnew = [...store.getState().data];
+  thisnew.push(res)
+  console.log(res)
+  store.setState({
+    data: thisnew
+  });
+})
+}
+
 // }
 // export async function getJSON(url) {
 //   return new Promise(function(resolve, error) {
