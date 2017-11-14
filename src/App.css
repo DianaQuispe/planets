@@ -1,3 +1,15 @@
 * {
   background: rgb(243, 203, 196);
 }
+.planets{
+  margin: 2%;
+  padding: 3% 0;
+  background: rgb(196, 173, 226);
+}
+.planets * {
+    background:rgb(196, 173, 226);
+
+}
+Button {
+  margin: 4em 0;
+}

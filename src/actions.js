@@ -15,6 +15,7 @@ export async function getJSON() {
    result = await response.json();
   result = result.results;
     console.log(result);
+    // search(result)
 
 }
 
