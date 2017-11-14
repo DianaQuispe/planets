@@ -1,25 +1,34 @@
-import React, { Component } from 'react';
-import './App.css';
-import { connect } from "redux-zero/react";
-import { Grid, Row, Col, Button } from "react-bootstrap";
-import { HashRouter, Switch, Route, NavLink } from "react-router-dom";
-import {getJSON} from './actions.js'
+  import React, { Component } from "react";
+  import "./App.css";
+  import { connect } from "redux-zero/react";
+  import { Grid, Row, Col, Button } from "react-bootstrap";
+  import { HashRouter, Switch, Route, NavLink } from "react-router-dom";
+  import { search, getJSON } from "./actions.js";
 
 
-const App = ({datos}) => {
-  return(
-    <Grid>
-      <Row>
-        <Col sm={12}>
-        <button onClick={() =>search()} >sera</button>
-        <div> {datos.length!=0?datos[0].pl_name:<br/>}      
-        </div>
-        </Col>
-      </Row>
-    </Grid>
-  )
-}
+  const App = ({ datos }) => {
+      const mapeo = datos.map((a, b) => {
+        return <div key={b}>
+                    <p>{a.pl_name}</p>
 
-const mapToProps = ({ datos }) => ({ datos});
+            <p>{a.pl_orbper}</p>
 
-export default connect(mapToProps)(App);
+            <p>{a.pl_telescope}</p>
+          </div>;
+      });
+    console.log('datos',datos)
+    getJSON();
+    return <Grid>
+        <Row>
+          <Col sm={12}>
+            <button onClick={() => search()}>sera</button>
+            {mapeo}
+            {/* <div> {datos.length != 0 ? <All/> : <br/>}</div> */}
+          </Col>
+        </Row>
+      </Grid>;
+  };
+
+  const mapToProps = ({ datos }) => ({ datos });
+
+  export default connect(mapToProps)(App);
