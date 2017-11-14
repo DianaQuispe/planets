@@ -5,7 +5,7 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import {Provider} from 'redux-zero/react'
 import store from './store';
-// import App from './App.js';
+import App from './App.js';
 import { HashRouter, Switch, Route, NavLink } from 'react-router-dom';
 
 
@@ -15,13 +15,7 @@ registerServiceWorker();
 const Index = ({ datos}) => {
     return (
         <Provider store={store}>
-            <HashRouter>
-                    <Switch>
-                        <Route exact path="/" component={App} />
-                       
-
-                    </Switch>
-            </HashRouter>
+            <App/>
         </Provider>
     )
 }
